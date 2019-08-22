@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.novoda.bintray-release'
 
+group = "com.github.asadmshah.HTextView"
 
 android {
     compileSdkVersion compile_version
@@ -23,19 +26,6 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$support_version"
-}
-
-if (enable_bintray) {
-    apply plugin: 'com.novoda.bintray-release'
-
-    publish {
-        userOrg = 'hanks-zyh'
-        groupId = 'com.hanks'
-        uploadName = "HTextViewBase"
-        artifactId = 'htextview-base'
-        publishVersion = library_version
-        desc = 'HTextViewBase'
-        website = 'https://github.com/hanks-zyh/HTextView'
-    }
+    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
 }

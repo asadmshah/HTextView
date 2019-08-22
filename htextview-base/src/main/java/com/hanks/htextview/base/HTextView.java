@@ -2,14 +2,15 @@ package com.hanks.htextview.base;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.TextView;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * Base TextView
  * Created by hanks on 2017/3/13.
  */
 
-public abstract class HTextView extends TextView {
+public abstract class HTextView extends AppCompatTextView {
     public HTextView(Context context) {
         this(context, null);
     }

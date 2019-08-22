@@ -1,9 +1,10 @@
 package com.example.demoapp;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hanks.htextview.base.AnimationListener;
 import com.hanks.htextview.base.HTextView;
