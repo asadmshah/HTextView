@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.text.Layout;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.hanks.htextview.base.CharacterDiffResult;
@@ -62,8 +63,10 @@ public class EvaporateText extends HText {
         mHTextView.post(new Runnable() {
             @Override
             public void run() {
-                oldStartX = mHTextView.getLayout().getLineLeft(0);
-                EvaporateText.super.animateText(text);
+                if (isPrepared()) {
+                    oldStartX = mHTextView.getLayout().getLineLeft(0);
+                    EvaporateText.super.animateText(text);
+                }
             }
         });
     }
@@ -95,6 +98,7 @@ public class EvaporateText extends HText {
 
     @Override
     protected void drawFrame(Canvas canvas) {
+        if (!isPrepared()) return;
 
         float startX = mHTextView.getLayout().getLineLeft(0);
         float startY = mHTextView.getBaseline();
@@ -149,6 +153,10 @@ public class EvaporateText extends HText {
                 offset += gapList.get(i);
             }
         }
+    }
+
+    private boolean isPrepared() {
+        return mHTextView.getLayout() != null && mHTextView.isAttachedToWindow() && mHTextView.getVisibility() != View.GONE;
     }
 
 }
