@@ -52,6 +52,10 @@ public class EvaporateTextView extends HTextView {
         evaporateText.animateText(text);
     }
 
+    public void setCharacterTime(long time) {
+        evaporateText.charTime = (float) time;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         // super.onDraw(canvas);
