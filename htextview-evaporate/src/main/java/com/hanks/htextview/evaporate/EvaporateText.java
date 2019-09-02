@@ -43,6 +43,8 @@ public class EvaporateText extends HText {
                 if (animationListener != null) {
                     animationListener.onAnimationEnd(mHTextView);
                 }
+                progress = 1f;
+                mHTextView.invalidate();
             }
         });
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
